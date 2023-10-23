@@ -1,0 +1,57 @@
+.create-post-page {
+    display: flex;
+    width: 100vw;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 500px;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 20px;
+
+    box-shadow: 5px 5px grey;
+}
+
+.input-cntr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin: 10px;
+}
+
+.input-cntr #inputCreatePost{
+    height: 100%;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.input-cntr label {
+    font-size: 20px;
+}
+
+span {
+    color: red;
+    margin: 10px;
+    font-size: 14px;
+}
+
+
+.createpost-button {
+    height: 50px;   
+    margin: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+
+}
+
+.createpost-button:hover {
+    cursor: pointer;
+    background-color: dodgerblue;
+}
