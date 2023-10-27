@@ -9,13 +9,13 @@ import './CreatePost.css'
 const CreatePost = () => {
   const navigate = useNavigate()
 
-  const initialValues = {
+  const initialValues: postInterface = {
     title: '',
     postText: '',
     username: '',
   }
 
-  const validationSchema = Yup.object().shape({
+  const validationSchema: Yup.ObjectSchema<postInterface> = Yup.object().shape({
     title: Yup.string().required('Informe um titulo!!'),
     postText: Yup.string().required('Escreva algo lindo antes!'),
     username: Yup.string().required('Seu melhor usuário!'),
