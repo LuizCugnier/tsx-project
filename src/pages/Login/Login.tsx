@@ -1,12 +1,11 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { ErrorMessage, Field, Formik, Form } from 'formik'
+import { userInterface } from '../../interfaces/Users'
 import * as Yup from 'yup'
+import './Login.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { userInterface } from '../../interfaces/Users'
 
-import './CreateUser.css'
-
-const CreateUser = () => {
+const Login = () => {
   const navigate = useNavigate()
   const initialValues: userInterface = {
     username: '',
@@ -19,13 +18,17 @@ const CreateUser = () => {
   })
 
   const onSubmit = (data: userInterface) => {
-    axios.post('http://localhost:3301/users', data).then(() => {
-      navigate('/')
+    axios.post('http://localhost:3301/users/login', data).then((response) => {
+      if (response.data.error) {
+        alert(response.data.error)
+      } else {
+        sessionStorage.setItem('accessToken', response.data.token)
+        navigate('/')
+      }
     })
   }
-
   return (
-    <div className="create-user-page">
+    <div className="login-page">
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -53,7 +56,7 @@ const CreateUser = () => {
           </div>
           <div className="divButtons">
             <button type={'submit'} className="createButton">
-              Create User
+              Login
             </button>
           </div>
         </Form>
@@ -62,4 +65,4 @@ const CreateUser = () => {
   )
 }
 
-export default CreateUser
+export default Login

@@ -1,3 +1,5 @@
 export { default as Home } from './Home/Home'
 export { default as CreatePost } from './CreatePost/CreatePost'
 export { default as PostPage } from './PostPage/PostPage'
+export { default as CreateUser } from './CreateUser/CreateUser'
+export { default as Login } from './Login/Login'
