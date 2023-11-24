@@ -12,4 +12,6 @@ Site basico de posts com:
 
 Projeto solo aprofudando no front-end com react
 
+#PROJETO EM ANDAMENTO
+
 
