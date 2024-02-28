@@ -1,5 +1,5 @@
 export interface postInterface {
   title: string
-  postText: string
-  username: string
+  body: string
+  user: {username: string}
 }
