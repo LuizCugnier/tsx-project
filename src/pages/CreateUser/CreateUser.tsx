@@ -15,13 +15,15 @@ const CreateUser = () => {
 
   const validationSchema: Yup.ObjectSchema<userInterface> = Yup.object().shape({
     username: Yup.string().min(6).max(20).required('Informe um usuário!!'),
+    email: Yup.string().email('Email inválido!').required('Informe um email!'),
     password: Yup.string().min(4).max(15).required('Informe uma senha!'),
   })
 
   const onSubmit = (data: userInterface) => {
-    axios.post('http://localhost:3301/users', data).then(() => {
+    axios.post('http://localhost:3000/users', data).then(() => {
       navigate('/')
     })
+    console.log('data', data)
   }
 
   return (
@@ -39,6 +41,15 @@ const CreateUser = () => {
               id={'inputUsername'}
               name={'username'}
               placeholder={'Seu melhor usuário!'}
+            />
+          </div>
+          <div className="input-cntr">
+            <label>Email:</label>
+            <ErrorMessage name={'email'} component={'span'} />
+            <Field
+              id={'inputEmail'}
+              name={'email'}
+              placeholder={'Seu melhor email!'}
             />
           </div>
           <div className="input-cntr">
