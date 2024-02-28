@@ -1,13 +1,15 @@
-import { postInterface } from '../../interfaces/Posts'
-import { Post } from '../../components/index'
-import { useAPi } from '../../hooks/useAPI'
-import './home.css'
-import { Link } from 'react-router-dom'
+import { postInterface } from "../../interfaces/Posts";
+import { Post } from "../../components/index";
+import { useAPi } from "../../hooks/useAPI";
+import "./home.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { data: getPosts } = useAPi<postInterface[]>(
-    'http://localhost:3301/posts',
-  )
+    "http://localhost:3000/posts"
+  );
+
+  // console.log(getPosts);
 
   return (
     <div className="home-page">
@@ -20,7 +22,7 @@ const Home = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
