@@ -9,8 +9,8 @@ const Post = ({ post }: PostProps) => {
   return (
     <div className="post-container">
       <div className="post-title">{post.title}</div>
-      <div className="post-body">{post.postText}</div>
-      <div className="post-footer">@{post.username}</div>
+      <div className="post-body">{post.body}</div>
+      <div className="post-footer">@{post.user.username}</div>
     </div>
   )
 }
