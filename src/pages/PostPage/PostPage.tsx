@@ -12,10 +12,11 @@ const PostPage = () => {
   const { id } = useParams()
   const [newComment, setNewComment] = useState('')
   const { data: postData } = useAPi<postInterface>(
-    `http://localhost:3301/posts/ById/${id}`,
+    `http://localhost:3000/posts/ById/${id}`,
   )
+    console.log('postdata',postData)
   const { data: commentData } = useAPi<commentInterface[]>(
-    `http://localhost:3301/comments/${id}`,
+    `http://localhost:3000/comments/${id}`,
   )
 
   const addComment = () => {
@@ -37,8 +38,8 @@ const PostPage = () => {
       <div className="left-side">
         <div className="post-container">
           <div className="post-title">{postData?.title}</div>
-          <div className="post-body">{postData?.postText}</div>
-          <div className="post-footer">@{postData?.username}</div>
+          <div className="post-body">{postData?.body}</div>
+          <div className="post-footer">@{postData?.user.username}</div>
         </div>
       </div>
       <div className="right-side">
